@@ -9,6 +9,9 @@
     const kgToGram = (value) => {
         if (typeof value === 'string') {
             const convertToNumber = parseFloat(value);
+            if (isNaN(convertToNumber)) {
+                return 'Please enter a valid number!';
+            }
             const result = convertToNumber * 1000;
             return `There is: ${result} Gram`;
         }
@@ -17,8 +20,14 @@
             return `Your value is: ${result} Gram`;
         }
         else {
-            return 'Please enter the wrong value!';
+            return 'Please enter the right value!';
         }
     };
-    kgToGram(4);
+    const stringTypeDefined = kgToGram('10');
+    const numberTypeDefined = kgToGram(10);
+    try {
+    }
+    catch (error) {
+        console.log(error.msg);
+    }
 }
